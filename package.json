@@ -1,0 +1,21 @@
+{
+  "name": "portfolio-website",
+  "version": "1.0.0",
+  "description": "Cloud Infrastructure & DevOps Portfolio with Social Media Integration",
+  "scripts": {
+    "dev": "netlify dev",
+    "build": "echo 'Static site - no build needed'",
+    "deploy": "netlify deploy --prod"
+  },
+  "keywords": [
+    "portfolio",
+    "cloud",
+    "devops",
+    "ai"
+  ],
+  "author": "Swarup Das",
+  "license": "MIT",
+  "devDependencies": {
+    "netlify-cli": "^17.10.1"
+  }
+}
