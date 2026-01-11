@@ -1,22 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Swarup Das — DevOps Engineer</title>
   <meta name="description" content="Portfolio showcasing development work and creative projects">
-  
+
   <!-- Favicon -->
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-  
+
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
-  
+
   <!-- Styles -->
   <link rel="stylesheet" href="assets/css/main.css">
 </head>
+
 <body>
 
   <!-- Navigation -->
@@ -48,7 +50,7 @@
           <span class="gradient-text">for AI</span>
         </h1>
         <p class="hero-description">
-          I'm Swarup, specializing in Cloud Infrastructure, DevOps automation, 
+          I'm Swarup, specializing in Cloud Infrastructure, DevOps automation,
           and Agentic AI systems. Building intelligent, scalable solutions for modern challenges.
         </p>
         <div class="hero-buttons">
@@ -81,80 +83,78 @@
 
       <div class="projects-grid">
         <!-- Project 1 -->
-        <article class="project-card">
+        <article class="project-card" data-project="azure-terraform">
           <div class="project-image">
-            <img src="https://picsum.photos/600/400?random=1" alt="Multi-Cloud Infrastructure">
+            <img src="assets/img/project-azure-terraform.png" alt="Azure Terraform Modules">
             <div class="project-overlay">
-              <a href="#" class="project-link">View Project →</a>
+              <span class="project-link">View Project →</span>
             </div>
           </div>
           <div class="project-info">
             <div class="project-tags">
-              <span class="tag">AWS</span>
+              <span class="tag">Azure</span>
               <span class="tag">Terraform</span>
-              <span class="tag">Kubernetes</span>
+              <span class="tag">IaC</span>
             </div>
-            <h3 class="project-title">Multi-Cloud Infrastructure Platform</h3>
+            <h3 class="project-title">Azure Terraform Modules</h3>
             <p class="project-description">
-              Enterprise-grade cloud infrastructure spanning AWS and Azure with automated 
-              provisioning, disaster recovery, and cost optimization. Reduced infrastructure 
-              costs by 40% using IaC best practices.
+              Reusable Terraform module library for rapid Azure resource deployment.
+              Production-ready modules with best practices for networking, compute,
+              storage, and security services.
             </p>
           </div>
         </article>
 
         <!-- Project 2 -->
-        <article class="project-card">
+        <article class="project-card" data-project="cicd-pipeline">
           <div class="project-image">
-            <img src="https://picsum.photos/600/400?random=2" alt="DevOps Pipeline">
+            <img src="assets/img/project-cicd-pipeline.png" alt="DevOps Pipeline">
             <div class="project-overlay">
-              <a href="#" class="project-link">View Project →</a>
+              <span class="project-link">View Project →</span>
             </div>
           </div>
           <div class="project-info">
             <div class="project-tags">
-              <span class="tag">Jenkins</span>
-              <span class="tag">Docker</span>
-              <span class="tag">GitLab CI</span>
+              <span class="tag">GitHub Actions</span>
+              <span class="tag">Azure DevOps</span>
             </div>
             <h3 class="project-title">Zero-Downtime CI/CD Pipeline</h3>
             <p class="project-description">
-              Automated deployment pipeline with blue-green deployments, automated testing, 
-              and rollback mechanisms. Achieved 99.9% uptime while increasing deployment 
+              Automated deployment pipeline with blue-green deployments, automated testing,
+              and rollback mechanisms. Achieved 99.9% uptime while increasing deployment
               frequency from weekly to multiple times per day.
             </p>
           </div>
         </article>
 
         <!-- Project 3 -->
-        <article class="project-card">
+        <article class="project-card" data-project="devops-agent">
           <div class="project-image">
-            <img src="https://picsum.photos/600/400?random=3" alt="Agentic AI System">
+            <img src="assets/img/project-devops-agent.png" alt="Agentic AI System">
             <div class="project-overlay">
-              <a href="#" class="project-link">View Project →</a>
+              <span class="project-link">View Project →</span>
             </div>
           </div>
           <div class="project-info">
             <div class="project-tags">
-              <span class="tag">LangChain</span>
-              <span class="tag">OpenAI</span>
+              <span class="tag">Azure AI Foundry</span>
               <span class="tag">Python</span>
             </div>
             <h3 class="project-title">Intelligent DevOps Agent</h3>
             <p class="project-description">
-              Agentic AI system that automates infrastructure monitoring, incident response, 
-              and root cause analysis. Uses RAG and autonomous decision-making to reduce 
+              Agentic AI system that automates infrastructure monitoring, incident response,
+              and root cause analysis. Uses RAG and autonomous decision-making to reduce
               MTTR by 60% and automate 80% of routine operations tasks.
             </p>
           </div>
         </article>
 
         <!-- Project 4 -->
-        <article class="project-card">
+        <article class="project-card" data-project="observability">
           <div class="project-image">
-            <img src="https://picsum.photos/600/400?random=4" alt="Observability Platform">
+            <img src="assets/img/project-observability.png" alt="Observability Platform">
             <div class="project-overlay">
-              <a href="#" class="project-link">View Project →</a>
+              <span class="project-link">View Project →</span>
             </div>
           </div>
           <div class="project-info">
@@ -165,9 +165,53 @@
             </div>
             <h3 class="project-title">Cloud Observability Platform</h3>
             <p class="project-description">
-              Comprehensive monitoring and observability solution with distributed tracing, 
-              log aggregation, and predictive alerting. Provides real-time insights across 
+              Comprehensive monitoring and observability solution with distributed tracing,
+              log aggregation, and predictive alerting. Provides real-time insights across
               microservices architecture with custom SLO dashboards.
+            </p>
+          </div>
+        </article>
+
+        <!-- Project 5 -->
+        <article class="project-card" data-project="azure-validation">
+          <div class="project-image">
+            <img src="assets/img/project-azure-validation.png" alt="Azure Infrastructure Validation">
+            <div class="project-overlay">
+              <span class="project-link">View Project →</span>
+            </div>
+          </div>
+          <div class="project-info">
+            <div class="project-tags">
+              <span class="tag">PowerShell</span>
+              <span class="tag">Pester</span>
+              <span class="tag">Azure</span>
+            </div>
+            <h3 class="project-title">Azure Infrastructure Validation</h3>
+            <p class="project-description">
+              Automated infrastructure testing framework using PowerShell Pester to validate
+              Azure resource configurations. Reduced validation time by 98% — from days to minutes.
+            </p>
+          </div>
+        </article>
+
+        <!-- Project 6 -->
+        <article class="project-card" data-project="azure-advisor-ai">
+          <div class="project-image">
+            <img src="assets/img/project-azure-advisor.png" alt="Azure Recommendation Remediation">
+            <div class="project-overlay">
+              <span class="project-link">View Project →</span>
+            </div>
+          </div>
+          <div class="project-info">
+            <div class="project-tags">
+              <span class="tag">Azure Advisor</span>
+              <span class="tag">LLM</span>
+              <span class="tag">Python</span>
+            </div>
+            <h3 class="project-title">AI-Powered Azure Advisor Remediation</h3>
+            <p class="project-description">
+              Intelligent recommendation engine that analyzes Azure Advisor suggestions using LLM
+              to prioritize, categorize, and auto-generate remediation actions for cloud optimization.
             </p>
           </div>
         </article>
@@ -266,7 +310,7 @@
         <div class="skill-category">
           <h3 class="category-title">Agentic AI & ML</h3>
           <div class="skill-list">
-            <span class="skill-item">LangChain</span>
+            <span class="skill-item">Azure AI Foundry</span>
             <span class="skill-item">OpenAI GPT</span>
             <span class="skill-item">AutoGen</span>
             <span class="skill-item">RAG Systems</span>
@@ -296,18 +340,18 @@
         <div class="about-text">
           <h2 class="section-title">About Me</h2>
           <p>
-            I'm a Cloud Infrastructure and DevOps specialist with 4+ years of experience building 
-            scalable, resilient systems. I architect multi-cloud solutions and implement AI-driven 
+            I'm a Cloud Infrastructure and DevOps specialist with 4+ years of experience building
+            scalable, resilient systems. I architect multi-cloud solutions and implement AI-driven
             automation to optimize operations.
           </p>
           <p>
-            My expertise spans infrastructure as code, container orchestration, and building 
-            intelligent agentic AI systems that automate complex DevOps workflows. I'm passionate 
+            My expertise spans infrastructure as code, container orchestration, and building
+            intelligent agentic AI systems that automate complex DevOps workflows. I'm passionate
             about combining cutting-edge AI with robust cloud infrastructure.
           </p>
           <p>
-            Currently exploring the intersection of LLMs and infrastructure automation, building 
-            agents that can autonomously manage, monitor, and optimize cloud environments. 
+            Currently exploring the intersection of LLMs and infrastructure automation, building
+            agents that can autonomously manage, monitor, and optimize cloud environments.
             Always learning, always innovating.
           </p>
           <div class="about-stats">
@@ -332,14 +376,17 @@
               <div class="resume-overlay">
                 <a href="assets/Swarup_Das_Resume.pdf" target="_blank" class="btn btn-primary">
                   <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" width="20" height="20">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
                   </svg>
                   View Full Resume
                 </a>
                 <a href="assets/Swarup_Das_Resume.pdf" download class="btn btn-secondary">
                   <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" width="20" height="20">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                   </svg>
                   Download PDF
                 </a>
@@ -358,14 +405,15 @@
         <div class="contact-info">
           <h2 class="section-title">Let's Work Together</h2>
           <p class="contact-description">
-            Have a project in mind? I'd love to hear about it. 
+            Have a project in mind? I'd love to hear about it.
             Send me a message and let's create something amazing.
           </p>
-          
+
           <div class="contact-methods">
             <div class="contact-method">
               <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
               </svg>
               <div>
                 <h4>Email</h4>
@@ -375,8 +423,10 @@
 
             <div class="contact-method">
               <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
               </svg>
               <div>
                 <h4>Location</h4>
@@ -386,7 +436,8 @@
 
             <div class="contact-method">
               <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
               <div>
                 <h4>Availability</h4>
@@ -444,20 +495,23 @@
 
         <div class="footer-section">
           <h4>Connect</h4>
-          <div class="https://github.com/SwarupYonX">
+          <div class="social-links">
             <a href="#" aria-label="GitHub">
               <svg class="social-icon" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                <path
+                  d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
               </svg>
             </a>
             <a href="https://www.linkedin.com/in/swarup2020" aria-label="LinkedIn">
               <svg class="social-icon" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                <path
+                  d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
               </svg>
             </a>
             <a href="https://x.com/itsdswarup" aria-label="Twitter">
               <svg class="social-icon" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/>
+                <path
+                  d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z" />
               </svg>
             </a>
           </div>
@@ -470,6 +524,58 @@
     </div>
   </footer>
 
+  <!-- Project Modal -->
+  <div class="project-modal" id="projectModal">
+    <div class="modal-overlay"></div>
+    <div class="modal-container">
+      <button class="modal-close" aria-label="Close modal">
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="24" height="24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+
+      <div class="modal-content">
+        <div class="modal-hero">
+          <img id="modalImage" src="" alt="Project Image">
+          <div class="modal-hero-overlay"></div>
+        </div>
+
+        <div class="modal-body">
+          <div class="modal-tags" id="modalTags"></div>
+          <h2 class="modal-title" id="modalTitle"></h2>
+          <p class="modal-description" id="modalDescription"></p>
+
+          <div class="modal-section">
+            <h3 class="modal-section-title">Key Achievements</h3>
+            <ul class="modal-highlights" id="modalHighlights"></ul>
+          </div>
+
+          <div class="modal-section">
+            <h3 class="modal-section-title">Tech Stack</h3>
+            <div class="modal-tech-stack" id="modalTechStack"></div>
+          </div>
+
+          <div class="modal-actions">
+            <a href="#" class="btn btn-primary" id="modalLiveLink" target="_blank">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="20" height="20">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+              </svg>
+              View Live
+            </a>
+            <a href="#" class="btn btn-secondary" id="modalGithubLink" target="_blank">
+              <svg fill="currentColor" viewBox="0 0 24 24" width="20" height="20">
+                <path
+                  d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+              </svg>
+              View Code
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- JavaScript -->
   <script src="assets/js/main.js"></script>
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
@@ -477,4 +583,5 @@
     document.getElementById('current-year').textContent = new Date().getFullYear();
   </script>
 </body>
+
 </html>
