@@ -1000,6 +1000,79 @@ a {
   color: var(--color-gray);
 }
 
+/* === Q&A SECTION === */
+.qna {
+  padding: var(--spacing-xl) 0;
+  background: var(--color-light);
+}
+
+.qna-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.qna-item {
+  background: white;
+  border-radius: var(--border-radius);
+  margin-bottom: var(--spacing-sm);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.qna-question {
+  width: 100%;
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: white;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  font-family: var(--font-primary);
+  font-size: var(--font-size-base);
+  font-weight: 600;
+  color: var(--color-dark);
+  transition: var(--transition);
+}
+
+.qna-question:hover {
+  background: var(--color-light);
+}
+
+.qna-question span {
+  flex: 1;
+  padding-right: 1rem;
+}
+
+.qna-icon {
+  width: 24px;
+  height: 24px;
+  color: var(--color-primary);
+  transition: transform 0.3s ease;
+  flex-shrink: 0;
+}
+
+.qna-item.active .qna-icon {
+  transform: rotate(180deg);
+}
+
+.qna-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+}
+
+.qna-item.active .qna-answer {
+  max-height: 500px;
+}
+
+.qna-answer p {
+  padding: 0 1.5rem 1.25rem;
+  color: var(--color-gray);
+  line-height: 1.8;
+}
+
 /* === PROJECT MODAL === */
 .project-modal {
   position: fixed;

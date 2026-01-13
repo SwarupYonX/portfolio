@@ -34,6 +34,7 @@
         <li><a href="#home">Home</a></li>
         <li><a href="#projects">Projects</a></li>
         <li><a href="#about">About</a></li>
+        <li><a href="#qna">Q&A</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </div>
@@ -392,6 +393,153 @@
                 </a>
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Q&A Section -->
+  <section id="qna" class="qna">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Frequently Asked Questions</h2>
+        <p class="section-subtitle">Common questions about my work and expertise</p>
+      </div>
+
+      <div class="qna-container">
+        <div class="qna-item">
+          <button class="qna-question">
+            <span>How do you approach automating infrastructure deployments?</span>
+            <svg class="qna-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+          <div class="qna-answer">
+            <p>I follow an Infrastructure as Code (IaC) approach using Terraform for Azure deployments. I build
+              reusable, modular templates with standardized naming conventions, integrate automated testing with
+              Terratest, and implement GitOps workflows through Azure DevOps or GitHub Actions. Every deployment
+              includes post-deployment validation using Pester tests to ensure configurations match expected state.</p>
+          </div>
+        </div>
+
+        <div class="qna-item">
+          <button class="qna-question">
+            <span>What's your experience with CI/CD pipelines?</span>
+            <svg class="qna-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+          <div class="qna-answer">
+            <p>I've built zero-downtime deployment pipelines using GitHub Actions and Azure DevOps with blue-green
+              deployment strategies. My pipelines include automated testing, security scanning with Trivy, code quality
+              checks with SonarQube, and automated rollback mechanisms. I've helped teams increase deployment frequency
+              from weekly to 50+ deployments per day while maintaining 99.9% uptime.</p>
+          </div>
+        </div>
+
+        <div class="qna-item">
+          <button class="qna-question">
+            <span>How are you applying AI/LLM to DevOps workflows?</span>
+            <svg class="qna-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+          <div class="qna-answer">
+            <p>I'm building agentic AI systems that automate complex DevOps tasks. For example, I've created an
+              intelligent agent that analyzes Azure Advisor recommendations using LLMs, prioritizes them based on
+              business impact, and auto-generates remediation scripts. I've also built RAG-based systems that help teams
+              query infrastructure documentation using natural language, reducing MTTR by 60%.</p>
+          </div>
+        </div>
+
+        <div class="qna-item">
+          <button class="qna-question">
+            <span>What monitoring and observability tools do you work with?</span>
+            <svg class="qna-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+          <div class="qna-answer">
+            <p>I have hands-on experience with Prometheus, Grafana, ELK Stack (Elasticsearch, Logstash, Kibana), Jaeger
+              for distributed tracing, and Azure Monitor. I focus on building comprehensive observability platforms that
+              combine metrics, logs, and traces to provide actionable insights. I've implemented predictive alerting
+              that prevents incidents before they impact users.</p>
+          </div>
+        </div>
+
+        <div class="qna-item">
+          <button class="qna-question">
+            <span>Can you describe your approach to incident management?</span>
+            <svg class="qna-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+          <div class="qna-answer">
+            <p>I own incidents end-to-end: from initial triage using monitoring dashboards, through root cause analysis
+              with distributed tracing and log correlation, to implementing preventative solutions. Every incident
+              becomes a learning opportunity — I document findings in runbooks and automate recurring issues. My goal is
+              to reduce MTTR while preventing similar incidents through proactive automation.</p>
+          </div>
+        </div>
+
+        <div class="qna-item">
+          <button class="qna-question">
+            <span>What cloud platforms are you experienced with?</span>
+            <svg class="qna-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+          <div class="qna-answer">
+            <p>I specialize in Azure with deep expertise in AKS, App Services, Azure SQL, VNets, Azure DevOps, and Azure
+              AI Foundry. I also have experience with AWS (EC2, EKS, Lambda) and Google Cloud. I'm comfortable
+              architecting multi-cloud solutions and implementing cloud-agnostic practices using Terraform and
+              Kubernetes.</p>
+          </div>
+        </div>
+
+        <div class="qna-item">
+          <button class="qna-question">
+            <span>What Azure certifications do you hold?</span>
+            <svg class="qna-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+          <div class="qna-answer">
+            <p>I hold multiple Azure certifications including Azure Administrator Associate (AZ-104), Azure DevOps
+              Engineer Expert (AZ-400), and Azure Solutions Architect Expert (AZ-305). These certifications validate my
+              expertise in cloud administration, DevOps practices, and designing scalable Azure solutions. I
+              continuously update my skills as Azure evolves.</p>
+          </div>
+        </div>
+
+        <div class="qna-item">
+          <button class="qna-question">
+            <span>How many years of experience do you have?</span>
+            <svg class="qna-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+          <div class="qna-answer">
+            <p>I have 4+ years of experience in Cloud Infrastructure and DevOps, with a strong focus on Azure. During
+              this time, I've managed 50+ cloud deployments, achieved 99.99% uptime for production systems, and led
+              multiple automation initiatives that significantly improved operational efficiency. I combine hands-on
+              technical skills with a continuous improvement mindset.</p>
+          </div>
+        </div>
+
+        <div class="qna-item">
+          <button class="qna-question">
+            <span>What differentiates your approach to DevOps?</span>
+            <svg class="qna-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+          <div class="qna-answer">
+            <p>I blend traditional DevOps practices with cutting-edge AI automation. While I ensure solid fundamentals
+              like IaC, CI/CD, and observability, I also integrate LLM-powered tools to accelerate workflows — from
+              auto-generating remediation scripts to building intelligent agents that handle routine operations. I
+              believe the future of DevOps is AI-augmented, and I'm actively building that future.</p>
           </div>
         </div>
       </div>

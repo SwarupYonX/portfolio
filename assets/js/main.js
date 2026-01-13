@@ -343,6 +343,25 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 
+  // ===== Q&A ACCORDION =====
+  const qnaItems = document.querySelectorAll('.qna-item');
+
+  qnaItems.forEach(item => {
+    const question = item.querySelector('.qna-question');
+
+    question.addEventListener('click', () => {
+      // Close other open items
+      qnaItems.forEach(otherItem => {
+        if (otherItem !== item && otherItem.classList.contains('active')) {
+          otherItem.classList.remove('active');
+        }
+      });
+
+      // Toggle current item
+      item.classList.toggle('active');
+    });
+  });
+
   // ===== TYPING EFFECT (Optional Enhancement) =====
   // Uncomment to enable typing effect on hero title
   /*
