@@ -6,6 +6,44 @@
 // Wait for DOM to load
 document.addEventListener('DOMContentLoaded', function () {
 
+  // ===== DARK MODE TOGGLE =====
+  const themeToggle = document.getElementById('themeToggle');
+  const html = document.documentElement;
+
+  // Get saved theme or default to light
+  function getInitialTheme() {
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+      return savedTheme;
+    }
+    // Default to light mode
+    return 'light';
+  }
+
+  // Apply initial theme
+  const initialTheme = getInitialTheme();
+  html.setAttribute('data-theme', initialTheme);
+
+  // Toggle theme on button click
+  if (themeToggle) {
+    themeToggle.addEventListener('click', function () {
+      const currentTheme = html.getAttribute('data-theme');
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+
+      html.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+    });
+  }
+
+  // Listen for system preference changes
+  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function (e) {
+    // Only auto-switch if user hasn't manually set a preference
+    if (!localStorage.getItem('theme')) {
+      const newTheme = e.matches ? 'dark' : 'light';
+      html.setAttribute('data-theme', newTheme);
+    }
+  });
+
   // ===== MOBILE MENU TOGGLE =====
   const menuToggle = document.querySelector('.menu-toggle');
   const navMenu = document.querySelector('.nav-menu');
