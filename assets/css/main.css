@@ -1778,6 +1778,15 @@ body.modal-open {
 
   .menu-toggle {
     display: flex;
+    order: 2;
+  }
+
+  .theme-toggle {
+    width: 38px;
+    height: 38px;
+    margin-left: auto;
+    margin-right: 0.5rem;
+    order: 1;
   }
 
   .profile-img-wrapper {
