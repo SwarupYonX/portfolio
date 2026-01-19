@@ -350,7 +350,8 @@ document.addEventListener('DOMContentLoaded', function () {
     ).join('');
 
     // Links
-    document.getElementById('modalLiveLink').href = project.liveUrl;
+    const liveLink = document.getElementById('modalLiveLink');
+    if (liveLink) liveLink.href = project.liveUrl;
     document.getElementById('modalGithubLink').href = project.githubUrl;
 
     // Show modal
