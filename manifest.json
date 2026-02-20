@@ -1,1 +1,20 @@
-{"short_name":"Swarup's Portfolio","name":"Swarup's Portfolio","icons":[{"src":"/assets/img/profile.png","type":"image/png","sizes":"256x256"},{"src":"/assets/img/ak.jpg","type":"image/jpeg","sizes":"400x400"}],"start_url":"/index.html","theme_color":"rgb(0,255,148)","display":"fullscreen"}
+{
+    "short_name": "Swarup Das",
+    "name": "Swarup Das — Cloud & AI Engineer",
+    "icons": [
+        {
+            "src": "/assets/favicon.svg",
+            "type": "image/svg+xml",
+            "sizes": "any"
+        },
+        {
+            "src": "/assets/img/Swarup_Photo_Coat.webp",
+            "type": "image/webp",
+            "sizes": "500x500"
+        }
+    ],
+    "start_url": "/index.html",
+    "theme_color": "#6366f1",
+    "background_color": "#0f172a",
+    "display": "standalone"
+}

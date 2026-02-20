@@ -47,12 +47,22 @@ document.addEventListener('DOMContentLoaded', function () {
   // ===== MOBILE MENU TOGGLE =====
   const menuToggle = document.querySelector('.menu-toggle');
   const navMenu = document.querySelector('.nav-menu');
+  const navOverlay = document.getElementById('navOverlay');
+
+  function closeMenu() {
+    navMenu.classList.remove('active');
+    if (navOverlay) navOverlay.classList.remove('active');
+    const spans = menuToggle.querySelectorAll('span');
+    spans[0].style.transform = 'none';
+    spans[1].style.opacity = '1';
+    spans[2].style.transform = 'none';
+  }
 
   if (menuToggle && navMenu) {
     menuToggle.addEventListener('click', function () {
       navMenu.classList.toggle('active');
+      if (navOverlay) navOverlay.classList.toggle('active');
 
-      // Animate hamburger icon
       const spans = menuToggle.querySelectorAll('span');
       if (navMenu.classList.contains('active')) {
         spans[0].style.transform = 'rotate(45deg) translateY(10px)';
@@ -66,16 +76,14 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     // Close menu when clicking nav links
-    const navLinks = navMenu.querySelectorAll('a');
-    navLinks.forEach(link => {
-      link.addEventListener('click', function () {
-        navMenu.classList.remove('active');
-        const spans = menuToggle.querySelectorAll('span');
-        spans[0].style.transform = 'none';
-        spans[1].style.opacity = '1';
-        spans[2].style.transform = 'none';
-      });
+    navMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', closeMenu);
     });
+
+    // Close menu on overlay click
+    if (navOverlay) {
+      navOverlay.addEventListener('click', closeMenu);
+    }
   }
 
   // ===== SMOOTH SCROLLING =====
@@ -113,8 +121,9 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
-  // ===== NAVBAR SCROLL EFFECT =====
+  // ===== NAVBAR SCROLL EFFECT & SCROLL-TO-TOP =====
   const navbar = document.querySelector('.navbar');
+  const scrollToTopBtn = document.getElementById('scrollToTop');
   let lastScroll = 0;
 
   window.addEventListener('scroll', function () {
@@ -127,8 +136,24 @@ document.addEventListener('DOMContentLoaded', function () {
       navbar.style.boxShadow = 'none';
     }
 
+    // Show/hide scroll-to-top button
+    if (scrollToTopBtn) {
+      if (currentScroll > 400) {
+        scrollToTopBtn.classList.add('visible');
+      } else {
+        scrollToTopBtn.classList.remove('visible');
+      }
+    }
+
     lastScroll = currentScroll;
   });
+
+  // Scroll to top on click
+  if (scrollToTopBtn) {
+    scrollToTopBtn.addEventListener('click', function () {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
 
   // ===== ACTIVE SECTION HIGHLIGHTING =====
   const sections = document.querySelectorAll('section[id]');
@@ -155,9 +180,28 @@ document.addEventListener('DOMContentLoaded', function () {
 
   window.addEventListener('scroll', highlightNavigation);
 
+  // ===== TOAST NOTIFICATION HELPER =====
+  function showToast(message, type = 'success') {
+    const container = document.getElementById('toastContainer');
+    if (!container) return;
+
+    const iconSVG = type === 'success'
+      ? '<svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>'
+      : '<svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>';
+
+    const toast = document.createElement('div');
+    toast.className = `toast ${type}`;
+    toast.innerHTML = `${iconSVG}<span>${message}</span>`;
+    container.appendChild(toast);
+
+    setTimeout(() => {
+      toast.classList.add('removing');
+      toast.addEventListener('animationend', () => toast.remove());
+    }, 4000);
+  }
+
   // ===== FORM HANDLING =====
-  // Initialize EmailJS (replace with your actual keys from emailjs.com)
-  emailjs.init('39v13_f3Z9SQIT1Pf'); // Get this from EmailJS dashboard
+  emailjs.init('39v13_f3Z9SQIT1Pf');
 
   const contactForm = document.querySelector('.contact-form');
 
@@ -165,27 +209,29 @@ document.addEventListener('DOMContentLoaded', function () {
     contactForm.addEventListener('submit', function (e) {
       e.preventDefault();
 
-      // Get form data
+      const submitBtn = contactForm.querySelector('button[type="submit"]');
+      const originalText = submitBtn.textContent;
+      submitBtn.textContent = 'Sending...';
+      submitBtn.classList.add('btn-loading');
+
       const formData = new FormData(contactForm);
       const data = Object.fromEntries(formData);
 
-      // Send email using EmailJS
-      console.log('Attempting to send email with data:', data);
       emailjs.send('service_5hjs7h9', 'template_y1pg2tv', {
         from_name: data.name,
         from_email: data.email,
         subject: data.subject,
         message: data.message,
         to_email: 'swaruptechranjan@gmail.com'
-      }).then(function (response) {
-        console.log('Email sent successfully:', response);
-        alert('Message sent successfully! I\'ll get back to you soon.');
+      }).then(function () {
+        showToast('Message sent successfully! I\'ll get back to you soon.', 'success');
         contactForm.reset();
       }, function (error) {
-        console.error('EmailJS error details:', error);
-        console.error('Error status:', error.status);
-        console.error('Error text:', error.text);
-        alert('Failed to send message. Please check the browser console (F12) for error details, or contact me directly at swaruptechranjan@gmail.com');
+        console.error('EmailJS error:', error);
+        showToast('Failed to send message. Please email me directly at tech.swarupdas@gmail.com', 'error');
+      }).finally(function () {
+        submitBtn.textContent = originalText;
+        submitBtn.classList.remove('btn-loading');
       });
     });
   }
@@ -219,7 +265,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const projectData = {
     'azure-terraform': {
       title: 'Azure Terraform Modules',
-      image: 'assets/img/project-azure-terraform.png',
+      image: 'assets/img/project-azure-terraform.webp',
       tags: ['Azure', 'Terraform', 'IaC', 'DevOps'],
       description: 'A comprehensive library of reusable Terraform modules designed for rapid and consistent Azure resource deployment. These production-ready modules encapsulate best practices for networking, compute, storage, and security services, enabling teams to deploy infrastructure quickly while maintaining compliance and governance standards.',
       highlights: [
@@ -235,7 +281,7 @@ document.addEventListener('DOMContentLoaded', function () {
     },
     'cicd-pipeline': {
       title: 'Zero-Downtime CI/CD Pipeline',
-      image: 'assets/img/project-cicd-pipeline.png',
+      image: 'assets/img/project-cicd-pipeline.webp',
       tags: ['Github Actions', 'Docker', 'Azure DevOps', 'Kubernetes', 'Helm'],
       description: 'Automated deployment pipeline with blue-green deployments, automated testing, and rollback mechanisms. This system ensures zero-downtime releases while maintaining high code quality through comprehensive testing stages.',
       highlights: [
@@ -251,7 +297,7 @@ document.addEventListener('DOMContentLoaded', function () {
     },
     'devops-agent': {
       title: 'Intelligent DevOps Agent',
-      image: 'assets/img/project-devops-agent.png',
+      image: 'assets/img/project-devops-agent.webp',
       tags: ['LangChain', 'OpenAI', 'Python', 'RAG', 'FastAPI'],
       description: 'Agentic AI system that automates infrastructure monitoring, incident response, and root cause analysis. Uses RAG and autonomous decision-making to handle complex operational scenarios with minimal human intervention.',
       highlights: [
@@ -267,7 +313,7 @@ document.addEventListener('DOMContentLoaded', function () {
     },
     'observability': {
       title: 'Cloud Observability Platform',
-      image: 'assets/img/project-observability.png',
+      image: 'assets/img/project-observability.webp',
       tags: ['Prometheus', 'Grafana', 'ELK Stack', 'Jaeger', 'OpenTelemetry'],
       description: 'Comprehensive monitoring and observability solution with distributed tracing, log aggregation, and predictive alerting. Provides real-time insights across microservices architecture with custom SLO dashboards and intelligent anomaly detection.',
       highlights: [
@@ -283,7 +329,7 @@ document.addEventListener('DOMContentLoaded', function () {
     },
     'azure-validation': {
       title: 'Azure Infrastructure Validation',
-      image: 'assets/img/project-azure-validation.png',
+      image: 'assets/img/project-azure-validation.webp',
       tags: ['PowerShell', 'Pester', 'Azure', 'DevOps', 'Automation'],
       description: 'Automated infrastructure testing framework using PowerShell Pester to validate Azure resource configurations post-deployment. This solution ensures deployed resources match expected configurations, security policies, and compliance requirements — reducing manual validation time by 98%, from days to just minutes.',
       highlights: [
@@ -300,7 +346,7 @@ document.addEventListener('DOMContentLoaded', function () {
     },
     'azure-advisor-ai': {
       title: 'AI-Powered Azure Advisor Remediation',
-      image: 'assets/img/project-azure-advisor.png',
+      image: 'assets/img/project-azure-advisor.webp',
       tags: ['Azure Advisor', 'LLM', 'Python', 'AI', 'Automation'],
       description: 'Intelligent recommendation engine that fetches Azure Advisor recommendations and leverages Large Language Models to analyze, prioritize, and categorize them. The system identifies which recommendations to act on immediately, which to defer, and which to ignore based on business context — while automatically generating detailed remediation steps and scripts.',
       highlights: [
@@ -387,19 +433,68 @@ document.addEventListener('DOMContentLoaded', function () {
 
   qnaItems.forEach(item => {
     const question = item.querySelector('.qna-question');
+    question.setAttribute('aria-expanded', 'false');
 
     question.addEventListener('click', () => {
       // Close other open items
       qnaItems.forEach(otherItem => {
         if (otherItem !== item && otherItem.classList.contains('active')) {
           otherItem.classList.remove('active');
+          otherItem.querySelector('.qna-question').setAttribute('aria-expanded', 'false');
         }
       });
 
       // Toggle current item
-      item.classList.toggle('active');
+      const isActive = item.classList.toggle('active');
+      question.setAttribute('aria-expanded', isActive.toString());
     });
   });
+
+  // ===== ANIMATED STATS COUNTER =====
+  function animateCounter(el) {
+    const target = parseFloat(el.textContent);
+    const suffix = el.textContent.replace(/[0-9.]/g, '');
+    const isDecimal = el.textContent.includes('.');
+    const duration = 1500;
+    const startTime = performance.now();
+
+    function update(currentTime) {
+      const elapsed = currentTime - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      // Ease-out cubic
+      const eased = 1 - Math.pow(1 - progress, 3);
+      const current = target * eased;
+
+      if (isDecimal) {
+        el.textContent = current.toFixed(2) + suffix;
+      } else {
+        el.textContent = Math.floor(current) + suffix;
+      }
+
+      if (progress < 1) {
+        requestAnimationFrame(update);
+      } else {
+        el.textContent = target + suffix;
+      }
+    }
+
+    requestAnimationFrame(update);
+  }
+
+  const statsObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const statNumbers = entry.target.querySelectorAll('.stat-number');
+        statNumbers.forEach(el => animateCounter(el));
+        statsObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.5 });
+
+  const aboutStats = document.querySelector('.about-stats');
+  if (aboutStats) {
+    statsObserver.observe(aboutStats);
+  }
 
   // ===== TYPING EFFECT (Optional Enhancement) =====
   // Uncomment to enable typing effect on hero title
