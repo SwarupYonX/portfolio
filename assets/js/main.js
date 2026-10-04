@@ -44,8 +44,73 @@ document.addEventListener('DOMContentLoaded', () => {
     }).catch(() => { if (formStatus) formStatus.textContent = 'Could not send the message. Please email directly.'; }).finally(() => { button.disabled = false; });
   });
 
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  const termCmd = document.querySelector('[data-term-cmd]');
+  const termOut = document.querySelector('[data-term-out]');
+  if (termCmd && termOut && !reduceMotion) {
+    const script = [
+      ['terraform plan -out=tfplan', 'Plan: 20 to add, 0 to change, 0 to destroy.'],
+      ['az pipelines run --name deploy-prod', '✓ SonarQube · Snyk · approval gate passed'],
+      ['terraform apply tfplan', 'Apply complete! Resources: 20 added, 0 destroyed.'],
+      ['kubectl rollout status deploy/api', 'deployment "api" successfully rolled out'],
+      ['az policy state summarize --resource-group rg-prod', '✓ Compliant · 0 non-compliant resources']
+    ];
+    const wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+    (async () => {
+      for (let step = 0; ; step = (step + 1) % script.length) {
+        const [cmd, out] = script[step];
+        termOut.classList.remove('is-shown');
+        termCmd.textContent = '';
+        await wait(step === 0 ? 1600 : 350);
+        for (const char of cmd) { termCmd.textContent += char; await wait(32 + Math.random() * 34); }
+        await wait(380);
+        termOut.textContent = out;
+        termOut.classList.add('is-shown');
+        await wait(2900);
+      }
+    })();
+  }
+
+  const counters = document.querySelectorAll('[data-count]');
+  if (counters.length && !reduceMotion) {
+    const run = (el) => {
+      const target = parseFloat(el.dataset.count);
+      const decimals = Number(el.dataset.decimals || 0);
+      const { prefix = '', suffix = '' } = el.dataset;
+      const start = performance.now();
+      const tick = (now) => {
+        const t = Math.min((now - start) / 1400, 1);
+        const eased = 1 - Math.pow(1 - t, 3);
+        el.textContent = `${prefix}${(target * eased).toFixed(decimals)}${suffix}`;
+        if (t < 1) requestAnimationFrame(tick);
+      };
+      requestAnimationFrame(tick);
+    };
+    const countObserver = new IntersectionObserver((entries) => entries.forEach((entry) => {
+      if (entry.isIntersecting) { run(entry.target); countObserver.unobserve(entry.target); }
+    }), { threshold: 0.6 });
+    counters.forEach((el) => { el.textContent = `${el.dataset.prefix || ''}${(0).toFixed(Number(el.dataset.decimals || 0))}${el.dataset.suffix || ''}`; countObserver.observe(el); });
+  }
+
+  const roleList = document.querySelector('.role-list');
+  const firstRole = roleList && roleList.querySelector('.role-entry');
+  if (firstRole) firstRole.classList.add('is-current');
+  if (roleList && !reduceMotion) {
+    let ticking = false;
+    const update = () => {
+      const rect = roleList.getBoundingClientRect();
+      const progress = (window.innerHeight * 0.6 - rect.top) / rect.height;
+      roleList.style.setProperty('--progress', Math.min(Math.max(progress, 0), 1).toFixed(3));
+      ticking = false;
+    };
+    window.addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(update); } }, { passive: true });
+    window.addEventListener('resize', update);
+    update();
+  }
+
   const wave = document.querySelector('#wave');
-  if (!wave || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  if (!wave || reduceMotion) return;
   const context = wave.getContext('2d');
   let offset = 0;
   const draw = () => {
